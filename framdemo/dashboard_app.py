@@ -15,9 +15,9 @@ import streamlit as st
 import framdemo.demo_utils as du
 
 # output file paths
-h5_file_path_prices = du.RESULTS / "dashboard_prices.h5"
-h5_file_path_volumes = du.RESULTS / "dashboard_volumes.h5"
-h5_file_path_hydro = du.RESULTS / "dashboard_hydro.h5"
+h5_file_path_prices = du.DEMO_FOLDER / "dashboard_prices.h5"
+h5_file_path_volumes = du.DEMO_FOLDER / "dashboard_volumes.h5"
+h5_file_path_hydro = du.DEMO_FOLDER / "dashboard_hydro.h5"
 
 if not h5_file_path_prices.exists():
     message = f"HDF5 file not found at {h5_file_path_prices}"
@@ -39,7 +39,7 @@ exogen = ["France", "Belgium", "Czech_Republic", "Latvia", "Austria", "Slovakia"
 
 # Setting up Dashboard infrastructure
 st.title("Simple demo dashboard")
-st.write("Path to result files:", du.RESULTS)
+st.write("Path to result files:", du.DEMO_FOLDER)
 st.sidebar.title("Navigation")
 menu_option = st.sidebar.radio(
     label="Select a page:",
@@ -424,7 +424,7 @@ if menu_option == "Hydro":
         st.plotly_chart(inflow_fig)
 
     # detailed hydro
-    h5_file_path_detailed_hydro = du.RESULTS / "dashboard_detailed_hydro.h5"
+    h5_file_path_detailed_hydro = du.DEMO_FOLDER / "dashboard_detailed_hydro.h5"
     modules_df = pd.DataFrame()
     series_df = pd.DataFrame()
     with contextlib.suppress(Exception), pd.HDFStore(h5_file_path_detailed_hydro, mode="r") as store:
