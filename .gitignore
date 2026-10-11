@@ -4,7 +4,6 @@ poetry.lock
 framdemo/__pycache__/
 tests/__pycache__/
 site/
-demo_folder/
 *workflow.*/
 poetry.exe
 demo_folder/base
