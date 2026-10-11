@@ -7,3 +7,10 @@ site/
 demo_folder/
 *workflow.*/
 poetry.exe
+demo_folder/base
+demo_folder/database
+demo_folder/detailed
+demo_folder/julia_depot
+demo_folder/julia_env
+demo_folder/modified
+demo_folder/modified_nordic
